@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "49872516954",
+    "project_id": "cropbuddy-app",
+    "storage_bucket": "cropbuddy-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49872516954:android:1c3445d956b8b499b2e563",
+        "android_client_info": {
+          "package_name": "com.cropbuddy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTUeahGqWM3Z1ydbY5W2FhhA2m_Ol7Elc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:49872516954:android:b479d0f7515a3bf2b2e563",
+        "android_client_info": {
+          "package_name": "com.example.cropco"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTUeahGqWM3Z1ydbY5W2FhhA2m_Ol7Elc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
