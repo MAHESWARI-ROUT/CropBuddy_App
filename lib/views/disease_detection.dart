@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:cropco/screens/history/disease_history.dart';
+import 'package:cropco/views/history/disease_history.dart';
 import 'package:cropco/widgets/history_card.dart';
 import 'package:cropco/widgets/image_banner.dart';
 import 'package:cropco/widgets/image_input.dart';

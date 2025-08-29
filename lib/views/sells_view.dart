@@ -4,14 +4,14 @@ import 'package:cropco/widgets/image_input.dart';
 import 'package:flutter/material.dart';
 import 'package:cropco/model/enums.dart';
 
-class Sellscreen extends StatefulWidget {
-  const Sellscreen({super.key});
+class SellsView extends StatefulWidget {
+  const SellsView({super.key});
 
   @override
-  State<Sellscreen> createState() => _SellscreenState();
+  State<SellsView> createState() => _SellsViewState();
 }
 
-class _SellscreenState extends State<Sellscreen> {
+class _SellsViewState extends State<SellsView> {
   Category? _selectedCategory;
   File? _selectedImage;
   final _titleController = TextEditingController();

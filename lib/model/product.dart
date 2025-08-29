@@ -4,13 +4,16 @@ class Product {
   final int quantity;
   final String category;
   final String imageUrl;
-
+  final String description;
+  final String unit;
   Product({
     required this.name,
     required this.price,
     required this.quantity,
     required this.category,
     required this.imageUrl,
+    required this.description,
+    required this.unit
   });
 
   factory Product.fromFirestore(Map<String, dynamic> data) {
@@ -20,6 +23,9 @@ class Product {
       quantity: data['quantity-avaliable'] ?? 0,
       category: data['category'] ?? '',
       imageUrl: data['imageUrl'] ?? '',
+      description: data['description']?? '',
+      unit: data['unit']?? '',
+
     );
   }
 }

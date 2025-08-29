@@ -1,11 +1,11 @@
-import 'package:cropco/screens/authentications/login_screen.dart';
-import 'package:cropco/screens/authentications/sucess_screen.dart';
+import 'package:cropco/views/authentications/login_view.dart';
+import 'package:cropco/views/authentications/sucess_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class EmailVarificationScreen extends StatelessWidget {
-  const EmailVarificationScreen({super.key});
+class EmailVarificationView extends GetView {
+  const EmailVarificationView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class EmailVarificationScreen extends StatelessWidget {
         //automaticallyImplyLeading: false,//to remove the back arrow mark
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => Get.offAll(() => const LoginView()),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),
@@ -61,7 +61,7 @@ class EmailVarificationScreen extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed:  () => Get.to(
-                  () => const SucessScreen(),
+                  () => const SucessView(),
                 ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.indigo[600],

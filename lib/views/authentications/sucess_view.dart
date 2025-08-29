@@ -1,12 +1,12 @@
 import 'package:cropco/model/device_utility.dart';
-import 'package:cropco/screens/authentications/login_screen.dart';
+import 'package:cropco/views/authentications/login_view.dart';
 import 'package:cropco/widgets/bottom_navigation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SucessScreen extends StatelessWidget {
-  const SucessScreen({super.key});
+class SucessView extends GetView {
+  const SucessView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class SucessScreen extends StatelessWidget {
       appBar: AppBar(
         actions: [
           IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
+              onPressed: () => Get.offAll(() => const LoginView()),
               icon: const Icon(CupertinoIcons.clear))
         ],
       ),

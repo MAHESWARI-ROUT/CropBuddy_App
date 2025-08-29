@@ -1,22 +1,22 @@
-import 'package:cropco/screens/home_body.dart';
-import 'package:cropco/screens/wishlistscreen.dart';
+import 'package:cropco/views/home_body.dart';
+import 'package:cropco/views/wishlist_view.dart';
 import 'package:cropco/widgets/category.dart';
 import 'package:cropco/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 
-class FrontscreenCostumer extends StatefulWidget {
-  const FrontscreenCostumer({super.key});
+class FrontViewCostumer extends StatefulWidget {
+  const FrontViewCostumer({super.key});
 
   @override
-  State<FrontscreenCostumer> createState() => _FrontscreenCostumerState();
+  State<FrontViewCostumer> createState() => _FrontViewCostumerState();
 }
 
-class _FrontscreenCostumerState extends State<FrontscreenCostumer> {
+class _FrontViewCostumerState extends State<FrontViewCostumer> {
   void _setScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'categories') {
       await Navigator.of(context).push(
-        MaterialPageRoute(builder: (ctx) => const FrontscreenCostumer()),
+        MaterialPageRoute(builder: (ctx) => const FrontViewCostumer()),
       );
     }
   }
@@ -24,7 +24,7 @@ class _FrontscreenCostumerState extends State<FrontscreenCostumer> {
   void _setWishlist() async {
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => const Wishlistscreen(),
+        builder: (ctx) => const WishlistView(),
       ),
     );
   }

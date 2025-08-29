@@ -1,5 +1,4 @@
-import 'package:cropco/screens/profile_screen.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cropco/views/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class MainDrawer extends StatelessWidget {
@@ -41,7 +40,7 @@ class MainDrawer extends StatelessWidget {
             leading: const Icon(Icons.account_circle_outlined),
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (ctx) => const ProfileScreen()));
+                  MaterialPageRoute(builder: (ctx) => const ProfileView()));
             },
           ),
           ListTile(

@@ -1,18 +1,18 @@
 import 'package:cropco/model/device_utility.dart';
-import 'package:cropco/screens/authentications/forget_password_screen.dart';
-import 'package:cropco/screens/authentications/signup_screen.dart';
+import 'package:cropco/views/authentications/forget_password_view.dart';
+import 'package:cropco/views/authentications/signup_view.dart';
 import 'package:cropco/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class LoginView extends StatefulWidget {
+  const LoginView({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginViewState extends State<LoginView> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
@@ -87,7 +87,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const Spacer(),
                           TextButton(
-                              onPressed: () => Get.to(() => const ForgetPasswordScreen()),
+                              onPressed: () => Get.to(() => const ForgetPasswordView()),
                               child: const Text(
                                 'Forget Password?',
                                 style: TextStyle(color: Color(0xFF667E06)),
@@ -123,7 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     borderRadius: BorderRadius.circular(15)),
                                 side: const BorderSide(
                                     color: Color(0xFF667E06), width: 2)),
-                            onPressed: () => Get.to(() => const SignupScreen()),
+                            onPressed: () => Get.to(() => const SignupView()),
                             child: const Text(
                               'Create Account',
                               style: TextStyle(

@@ -1,7 +1,8 @@
-import 'package:cropco/screens/community_screen.dart';
-import 'package:cropco/screens/expense_tracker.dart';
-import 'package:cropco/screens/frontscreen_farmer.dart';
-import 'package:cropco/screens/plantation_screen.dart';
+
+import 'package:cropco/views/community_view.dart';
+import 'package:cropco/views/expense_tracker.dart';
+import 'package:cropco/views/frontview_farmer.dart';
+import 'package:cropco/views/plantation_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,9 +15,9 @@ class BottomNavigationController extends GetxController {
 
   // Screens to navigate between
   final List<Widget> screens = [
-    const FrontScreenFarmer(),
-    const PlantationScreen(),
+    const FrontviewFarmer(),
+    const PlantationView(),
     const ExpenseTracker(),
-    const CommunityScreen(),
+    const CommunityView(),
   ];
 }

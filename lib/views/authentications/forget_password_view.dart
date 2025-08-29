@@ -1,48 +1,48 @@
-import 'package:cropco/screens/authentications/login_screen.dart';
+import 'package:cropco/views/authentications/reset_password_view.dart';
+import 'package:cropco/widgets/text_field.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
-  const ResetPasswordScreen({super.key});
+class ForgetPasswordView extends StatefulWidget {
+  const ForgetPasswordView({super.key});
+
+  @override
+  State<ForgetPasswordView> createState() => _ForgetPasswordViewState();
+}
+
+class _ForgetPasswordViewState extends State<ForgetPasswordView> {
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        //automaticallyImplyLeading: false,
-        actions: [
-          IconButton(
-              onPressed: () => Get.offAll(() => const LoginScreen()),
-              icon: const Icon(CupertinoIcons.clear))
-        ],
-      ),
+      appBar: AppBar(),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            Image.asset(
-              "assets/images/reset.png",
-              width: 200,
-              height: 200,
-            ),
-            const SizedBox(
-              height: 20,
-            ),
             Text(
-              'Password Reset Email Sent',
+              'Forget Password!',
               style: Theme.of(context)
                   .textTheme
                   .bodyLarge!
-                  .copyWith(fontWeight: FontWeight.bold, fontSize: 20),
+                  .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             const SizedBox(
               height: 15,
             ),
             Text(
-              'Your account security is our priority.We have sent you a secure link to safely chage your password and keep your account protected',
-              style: Theme.of(context).textTheme.bodyLarge,
-              textAlign: TextAlign.center,
+                'Don\'t worry.Enter your Email we will send you your password reset link',
+                style: Theme.of(context).textTheme.bodySmall),
+            const SizedBox(
+              height: 20,
+            ),
+            CTextField(
+              text: 'Email',
+              icon: Icons.email_outlined,
+              controller: emailController,
+              ishidden: false,
             ),
             const SizedBox(
               height: 20,
@@ -54,15 +54,13 @@ class ResetPasswordScreen extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15)),
                       backgroundColor: const Color(0xFF667E06)),
-                  onPressed: () {},
+                  onPressed: () => Get.to(const ResetPasswordView()),
                   child: const Text(
-                    'Done',
+                    'Submit',
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   )),
             ),
-            const SizedBox(height: 15,),
-            TextButton(onPressed: (){}, child: const Text('Resend Email'))
           ],
         ),
       ),

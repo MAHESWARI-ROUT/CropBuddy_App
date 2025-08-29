@@ -1,5 +1,5 @@
 import 'package:cropco/model/onboarding_controller.dart';
-import 'package:cropco/screens/authentications/login_screen.dart';
+import 'package:cropco/views/authentications/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';

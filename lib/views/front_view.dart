@@ -1,5 +1,6 @@
-import 'package:cropco/screens/frontscreen_costumer.dart';
-import 'package:cropco/screens/frontscreen_farmer.dart';
+
+import 'package:cropco/views/front_view_costumer.dart';
+import 'package:cropco/views/frontview_farmer.dart';
 import 'package:flutter/material.dart';
 
 class FrontScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _FrontScreenState extends State<FrontScreen> {
       isFarmer =false;
     }
 
-    return isFarmer? const FrontscreenCostumer(): const FrontScreenFarmer();
+    return isFarmer? const FrontViewCostumer(): const FrontviewFarmer();
     
   }
 }

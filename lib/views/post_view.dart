@@ -1,15 +1,15 @@
 import 'package:cropco/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 
-class PostScreen extends StatelessWidget {
-  const PostScreen({super.key});
+class PostView extends StatelessWidget {
+  const PostView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
+      body: const Padding(
+        padding:  EdgeInsets.all(15.0),
         child: SizedBox(
           height: 500,
           width: double.infinity,

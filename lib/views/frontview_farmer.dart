@@ -1,24 +1,25 @@
 import 'package:cropco/model/chatbot_ai.dart';
-import 'package:cropco/screens/home_body.dart';
-import 'package:cropco/screens/wishlistscreen.dart';
+
+import 'package:cropco/views/home_body.dart';
+import 'package:cropco/views/wishlist_view.dart';
 import 'package:cropco/widgets/carousel_bannerslider.dart';
 import 'package:cropco/widgets/home_searchbar.dart';
 import 'package:cropco/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
 
-class FrontScreenFarmer extends StatefulWidget {
-  const FrontScreenFarmer({super.key});
+class FrontviewFarmer extends StatefulWidget {
+  const FrontviewFarmer({super.key});
 
   @override
-  State<FrontScreenFarmer> createState() => _FrontScreenFarmerState();
+  State<FrontviewFarmer> createState() => _FrontScreenFarmerState();
 }
 
-class _FrontScreenFarmerState extends State<FrontScreenFarmer> {
+class _FrontScreenFarmerState extends State<FrontviewFarmer> {
   void _setScreen(String identifier) async {
     Navigator.of(context).pop();
     if (identifier == 'categories') {
       await Navigator.of(context).push(
-        MaterialPageRoute(builder: (ctx) => const FrontScreenFarmer()),
+        MaterialPageRoute(builder: (ctx) => const FrontviewFarmer()),
       );
     }
   }
@@ -26,7 +27,7 @@ class _FrontScreenFarmerState extends State<FrontScreenFarmer> {
   void _setWishlist() async {
     await Navigator.of(context).push(
       MaterialPageRoute(
-        builder: (ctx) => const Wishlistscreen(),
+        builder: (ctx) => const WishlistView(),
       ),
     );
   }

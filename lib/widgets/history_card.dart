@@ -1,4 +1,4 @@
-import 'package:cropco/screens/disease_detection.dart';
+import 'package:cropco/views/disease_detection.dart';
 import 'package:flutter/material.dart';
 
 class HistoryCard extends StatelessWidget {

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Buyscreen extends StatefulWidget {
-  const Buyscreen({super.key});
+class Buyview extends StatefulWidget {
+  const Buyview({super.key});
 
   @override
-  State<Buyscreen> createState() => _BuyscreenState();
+  State<Buyview> createState() => _BuyviewState();
 }
 
-class _BuyscreenState extends State<Buyscreen> {
+class _BuyviewState extends State<Buyview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

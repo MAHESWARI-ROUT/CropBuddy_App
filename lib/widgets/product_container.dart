@@ -1,5 +1,5 @@
 import 'package:cropco/model/product.dart';
-import 'package:cropco/screens/product_details_screen.dart';
+import 'package:cropco/views/product_details_view.dart';
 import 'package:cropco/widgets/circular_container.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class _ProductContainerState extends State<ProductContainer> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => ProductDetailsScreen(product: product),
+            builder: (context) => ProductDetailsView(product: product),
           ),
         );
       },

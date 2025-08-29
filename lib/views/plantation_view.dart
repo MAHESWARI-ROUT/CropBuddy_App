@@ -1,12 +1,13 @@
-import 'package:cropco/screens/disease_detection.dart';
-import 'package:cropco/screens/history/plantation_history.dart';
+
+import 'package:cropco/views/disease_detection.dart';
+import 'package:cropco/views/history/plantation_history.dart';
 import 'package:cropco/widgets/calendar.dart';
 import 'package:cropco/widgets/gradient_appbar.dart';
 import 'package:cropco/widgets/weather_plantation.dart';
 import 'package:flutter/material.dart';
 
-class PlantationScreen extends StatelessWidget {
-  const PlantationScreen({super.key});
+class PlantationView extends StatelessWidget {
+  const PlantationView({super.key});
 
   @override
   Widget build(BuildContext context) {

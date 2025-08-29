@@ -1,16 +1,16 @@
-import 'package:cropco/screens/authentications/email_varification_screen.dart';
+import 'package:cropco/views/authentications/email_varification_view.dart';
 import 'package:cropco/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+class SignupView extends StatefulWidget {
+  const SignupView({super.key});
 
   @override
-  State<SignupScreen> createState() => _SignupScreenState();
+  State<SignupView> createState() => _SignupViewState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
+class _SignupViewState extends State<SignupView> {
   final TextEditingController fnameController = TextEditingController();
   final TextEditingController lnameController = TextEditingController();
   final TextEditingController unameController = TextEditingController();
@@ -172,7 +172,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       width: double.infinity,
                       child: ElevatedButton(
                         onPressed: () =>
-                            Get.to(() => const EmailVarificationScreen()),
+                            Get.to(() => const EmailVarificationView()),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF667E06),
                         ),

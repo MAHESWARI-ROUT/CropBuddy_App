@@ -1,5 +1,5 @@
 
-import 'package:cropco/screens/authentications/login_screen.dart';
+import 'package:cropco/views/authentications/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,7 +28,7 @@ class OnBoardingController extends GetxController{
   ///update current index & jump to next page
   void nextPage(){
     if(currPageIndex.value==2){
-      Get.to(() => const LoginScreen());
+      Get.to(() => const LoginView());
     }
     else{
       int page =currPageIndex.value+1;

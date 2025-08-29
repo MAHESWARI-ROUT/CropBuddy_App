@@ -1,12 +1,12 @@
-import 'package:cropco/screens/post_screen.dart';
+import 'package:cropco/views/post_view.dart';
 import 'package:cropco/widgets/community_account.dart';
 import 'package:cropco/widgets/gradient_appbar.dart';
 import 'package:cropco/widgets/home_searchbar.dart';
 import 'package:cropco/widgets/post_container.dart';
 import 'package:flutter/material.dart';
 
-class CommunityScreen extends StatelessWidget {
-  const CommunityScreen({super.key});
+class CommunityView extends StatelessWidget {
+  const CommunityView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +83,7 @@ class CommunityScreen extends StatelessWidget {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (ctx) => const PostScreen(),
+                builder: (ctx) => const PostView(),
               ),
             );
           },
