@@ -85,7 +85,7 @@ class _ProductContainerState extends State<ProductContainer> {
                   const SizedBox(height: 2),
                   Text("\$${product.price.toStringAsFixed(2)}"),
                   Text(
-                    "Qty: ${product.quantity}",
+                    "Qty: ${product.quantityAvailable}",
                     style: const TextStyle(fontSize: 12),
                   ),
                 ],

@@ -5,13 +5,13 @@ import 'package:cropco/views/authentications/reset_password_view.dart';
 import 'package:cropco/views/authentications/signup_view.dart';
 import 'package:cropco/views/authentications/sucess_view.dart';
 import 'package:cropco/views/buyview.dart';
+import 'package:cropco/views/cart_view.dart';
 import 'package:cropco/views/community_view.dart';
 import 'package:cropco/views/expense_tracker.dart';
 import 'package:cropco/views/frontview_farmer.dart';
 import 'package:cropco/views/onboarding.dart';
 import 'package:cropco/views/plantation_view.dart';
 import 'package:cropco/views/post_view.dart';
-import 'package:cropco/views/product_details_view.dart';
 import 'package:cropco/views/profile_view.dart';
 import 'package:cropco/views/sells_view.dart';
 import 'package:cropco/views/wishlist_view.dart';
@@ -46,11 +46,12 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme,
-      initialRoute: '/onboarding',
+      initialRoute: '/onboarding',//'/front-farmer',
       getPages: [
         GetPage(name: '/onboarding', page: () => Onboarding()),
         GetPage(name: '/signup', page: () => const SignupView()),
         GetPage(name: '/login', page: () => const LoginView()),
+        GetPage(name: '/cart', page: () => const CartView()),
         GetPage(
             name: '/email-verification',
             page: () => const EmailVarificationView()),

@@ -1,4 +1,5 @@
-import 'package:cropco/model/chatbot_ai.dart';
+import 'package:cropco/model/chat_screen.dart';
+import 'package:cropco/views/cart_view.dart';
 
 import 'package:cropco/views/home_body.dart';
 import 'package:cropco/views/wishlist_view.dart';
@@ -6,6 +7,7 @@ import 'package:cropco/widgets/carousel_bannerslider.dart';
 import 'package:cropco/widgets/home_searchbar.dart';
 import 'package:cropco/widgets/main_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class FrontviewFarmer extends StatefulWidget {
   const FrontviewFarmer({super.key});
@@ -30,6 +32,11 @@ class _FrontScreenFarmerState extends State<FrontviewFarmer> {
         builder: (ctx) => const WishlistView(),
       ),
     );
+  }
+
+  void _setCart() async {
+    await Navigator.of(context)
+        .push(MaterialPageRoute(builder: (ctx) => const CartView()));
   }
 
   @override
@@ -58,7 +65,7 @@ class _FrontScreenFarmerState extends State<FrontviewFarmer> {
               ),
               IconButton(
                 icon: const Icon(Icons.shopping_cart_outlined),
-                onPressed: _setWishlist,
+                onPressed: _setCart,
               ),
             ],
           ),
@@ -71,7 +78,7 @@ class _FrontScreenFarmerState extends State<FrontviewFarmer> {
             // Main content
             Container(
               decoration: BoxDecoration(color: Colors.lightGreen[100]),
-              child:  Column(
+              child: Column(
                 children: [
                   const HomeSearchbar(color: Color(0xFF667E06)),
                   Expanded(
@@ -101,8 +108,9 @@ class _FrontScreenFarmerState extends State<FrontviewFarmer> {
               right: 20,
               child: FloatingActionButton(
                 onPressed: () {
+                  
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (ctx) => const ChatbotAi()),
+                    MaterialPageRoute(builder: (ctx) => const ChatScreen()),
                   );
                 },
                 backgroundColor: Colors.lightGreen.shade300,

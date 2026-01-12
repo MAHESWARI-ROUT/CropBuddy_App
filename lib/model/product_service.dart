@@ -5,10 +5,18 @@ class ProductService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Stream<List<Product>> getProducts() {
-    return _db.collection('product').snapshots().map((snapshot) {
-      return snapshot.docs.map((doc) {
-        return Product.fromFirestore(doc.data());
-      }).toList();
-    });
-  }
+  return FirebaseFirestore.instance
+      .collection('product')
+      .snapshots(includeMetadataChanges: true)
+      .map((snapshot) {
+        if (snapshot.metadata.isFromCache) {
+          print('Using cache');
+        }
+
+        return snapshot.docs.map((doc) {
+          return Product.fromFirestore(doc.data());
+        }).toList();
+      });
+}
+
 }

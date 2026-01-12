@@ -13,6 +13,7 @@ class ProductDetailsView extends StatefulWidget {
 }
 
 class _ProductDetailsViewState extends State<ProductDetailsView> {
+  
   @override
   Widget build(BuildContext context) {
     final product = widget.product;
@@ -80,9 +81,21 @@ class _ProductDetailsViewState extends State<ProductDetailsView> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             Text(product.description),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Add To Cart'),
+            const Spacer(),
+            Center(
+              child: SizedBox(
+                width: double.infinity,
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: AppColors.appbarColor,
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'Add To Cart',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ),
             )
           ],
         ),

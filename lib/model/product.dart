@@ -1,7 +1,7 @@
 class Product {
   final String name;
   final double price;
-  final int quantity;
+  final int quantityAvailable;
   final String category;
   final String imageUrl;
   final String description;
@@ -9,7 +9,7 @@ class Product {
   Product({
     required this.name,
     required this.price,
-    required this.quantity,
+    required this.quantityAvailable,
     required this.category,
     required this.imageUrl,
     required this.description,
@@ -20,7 +20,7 @@ class Product {
     return Product(
       name: data['name'] ?? '',
       price: (data['price'] ?? 0).toDouble(),
-      quantity: data['quantity-avaliable'] ?? 0,
+      quantityAvailable: (data['quantityAvailable'] ?? 0).toInt(),
       category: data['category'] ?? '',
       imageUrl: data['imageUrl'] ?? '',
       description: data['description']?? '',
