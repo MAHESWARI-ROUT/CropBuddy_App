@@ -1,6 +1,7 @@
 import 'package:cropco/model/device_utility.dart';
 import 'package:cropco/views/authentications/forget_password_view.dart';
 import 'package:cropco/views/authentications/signup_view.dart';
+import 'package:cropco/widgets/bottom_navigation.dart';
 import 'package:cropco/widgets/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -55,7 +56,7 @@ class _LoginViewState extends State<LoginView> {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: Column(
                     children: [
-                       CTextField(
+                      CTextField(
                         text: 'E-mail',
                         icon: Icons.email,
                         controller: emailController,
@@ -63,7 +64,7 @@ class _LoginViewState extends State<LoginView> {
                       const SizedBox(
                         height: 10,
                       ),
-                       CTextField(
+                      CTextField(
                         text: 'password',
                         icon: Icons.lock,
                         icon2: Icons.visibility_off,
@@ -87,7 +88,8 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           const Spacer(),
                           TextButton(
-                              onPressed: () => Get.to(() => const ForgetPasswordView()),
+                              onPressed: () =>
+                                  Get.to(() => const ForgetPasswordView()),
                               child: const Text(
                                 'Forget Password?',
                                 style: TextStyle(color: Color(0xFF667E06)),
@@ -104,7 +106,21 @@ class _LoginViewState extends State<LoginView> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(15)),
                                 backgroundColor: const Color(0xFF667E06)),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (ctx) => const BottomNavigation(
+                                      icon1: Icons.home,
+                                      icon2: Icons.local_florist,
+                                      icon3: Icons.account_balance_wallet,
+                                      icon4: Icons.people,
+                                      text1: 'home',
+                                      text2: 'plantation',
+                                      text3: 'wallet',
+                                      text4: 'community'),
+                                ),
+                              );
+                            },
                             child: const Text(
                               'Sign In',
                               style: TextStyle(

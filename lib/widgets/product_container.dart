@@ -1,23 +1,19 @@
+import 'package:cropco/model/wishlist_provider.dart';
+import 'package:flutter/material.dart';
 import 'package:cropco/model/product.dart';
 import 'package:cropco/views/product_details_view.dart';
 import 'package:cropco/widgets/circular_container.dart';
-import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class ProductContainer extends StatefulWidget {
+class ProductContainer extends StatelessWidget {
   final Product product;
 
   const ProductContainer({super.key, required this.product});
 
   @override
-  State<ProductContainer> createState() => _ProductContainerState();
-}
-
-class _ProductContainerState extends State<ProductContainer> {
-  bool isFavorite = false;
-
-  @override
   Widget build(BuildContext context) {
-    final product = widget.product;
+    final wishlistProvider = context.watch<WishlistProvider>();
+    final isFavorite = wishlistProvider.isInWishlist(product);
 
     return GestureDetector(
       onTap: () {
@@ -59,12 +55,12 @@ class _ProductContainerState extends State<ProductContainer> {
               right: 0,
               child: IconButton(
                 onPressed: () {
-                  setState(() {
-                    isFavorite = !isFavorite;
-                  });
+                  wishlistProvider.toggleWishlist(product);
                 },
                 icon: Icon(
-                  isFavorite ? Icons.favorite : Icons.favorite_border_outlined,
+                  isFavorite
+                      ? Icons.favorite
+                      : Icons.favorite_border_outlined,
                   color: isFavorite ? Colors.red.shade900 : null,
                 ),
               ),

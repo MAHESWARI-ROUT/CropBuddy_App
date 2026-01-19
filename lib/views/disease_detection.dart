@@ -1,10 +1,11 @@
 import 'dart:io';
-
-import 'package:cropco/views/history/disease_history.dart';
-import 'package:cropco/widgets/history_card.dart';
-import 'package:cropco/widgets/image_banner.dart';
+import 'package:cropco/data/history_store.dart';
+import 'package:cropco/model/disease_record.dart';
+import 'package:cropco/services/disease_tflite_service.dart';
 import 'package:cropco/widgets/image_input.dart';
 import 'package:flutter/material.dart';
+
+import 'history/disease_history.dart';
 
 class DiseaseDetection extends StatefulWidget {
   const DiseaseDetection({super.key});
@@ -14,107 +15,94 @@ class DiseaseDetection extends StatefulWidget {
 }
 
 class _DiseaseDetectionState extends State<DiseaseDetection> {
-  final String _diseaseName = "";
-  final String _diseaseDescription = "";
-  final String _diseasePrevention = "";
-  final String _diseaseCure = "";
   File? _selectedImage;
+  String _crop = "Potato";
+  String _disease = "";
+  String _confidence = "";
+  bool _loading = false;
 
   void _pickImage(File image) {
+    setState(() => _selectedImage = image);
+  }
+
+  Future<void> _detect() async {
+    if (_selectedImage == null) return;
+
+    setState(() => _loading = true);
+
+    await DiseaseTfliteService.loadModel(_crop);
+    final result =
+        DiseaseTfliteService.predict(_selectedImage!, _crop);
+
     setState(() {
-      _selectedImage = image;
+      _disease = result["disease"];
+      _confidence = result["confidence"];
+      _loading = false;
     });
+
+    diseaseHistory.add(
+      DiseaseRecord(
+        crop: _crop,
+        disease: _disease,
+        confidence: _confidence,
+        date: DateTime.now(),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Disease Detection'),
+        title: const Text("Disease Detection"),
         actions: [
           IconButton(
+            icon: const Icon(Icons.history),
             onPressed: () {
-              Navigator.of(context).push(
+              Navigator.push(
+                context,
                 MaterialPageRoute(
-                  builder: (ctx) => const DiseaseHistory(),
+                  builder: (_) => const DiseaseHistory(),
                 ),
               );
             },
-            icon: const Icon(Icons.history),
-          ),
+          )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Center(
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 10,
-                ),
-                ImageInput(
-                  onPickImage: _pickImage,
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  radius: 20,
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  defaultIcon: Icons.camera_alt_outlined,
-                  circular: false,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Disease Name: $_diseaseName',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          children: [
+            DropdownButton<String>(
+              value: _crop,
+              items: ["Apple", "Tomato", "Potato"]
+                  .map(
+                    (c) => DropdownMenuItem(
+                      value: c,
+                      child: Text(c),
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Disease Description: $_diseaseDescription',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Cure: $_diseaseCure',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                Align(
-                  alignment: Alignment.topLeft,
-                  child: Text(
-                    'Prevention: $_diseasePrevention',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-              ],
+                  )
+                  .toList(),
+              onChanged: (v) => setState(() => _crop = v!),
             ),
-          ),
+            const SizedBox(height: 10),
+            ImageInput(onPickImage: _pickImage,height: MediaQuery.of(context).size.height * 0.3,
+  width: MediaQuery.of(context).size.width * 0.8,
+  radius: 20,
+  defaultIcon: Icons.camera_alt_outlined,
+  circular: false,),
+            const SizedBox(height: 15),
+            ElevatedButton(
+              onPressed: _loading ? null : _detect,
+              child: _loading
+                  ? const CircularProgressIndicator()
+                  : const Text("Detect Disease"),
+            ),
+            const SizedBox(height: 20),
+            Text("Disease: $_disease",
+                style: const TextStyle(fontWeight: FontWeight.bold)),
+            Text("Confidence: $_confidence%"),
+          ],
         ),
       ),
     );

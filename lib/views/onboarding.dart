@@ -38,7 +38,7 @@ class Onboarding extends StatelessWidget {
             top: kToolbarHeight,
             right: 10,
             child: TextButton(
-              onPressed: () => OnBoardingController.instance.skipPage(),
+              onPressed: (){Get.toNamed('/login');},//() => OnBoardingController.instance.skipPage(),
               child: const Text('skip'),
             ),
           ),

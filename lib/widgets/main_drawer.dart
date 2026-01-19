@@ -1,5 +1,6 @@
 import 'package:cropco/views/profile_view.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class MainDrawer extends StatelessWidget {
   const MainDrawer({super.key, required this.onSelectScreen});
@@ -46,7 +47,9 @@ class MainDrawer extends StatelessWidget {
           ListTile(
             title: const Text('expense tracker'),
             leading: const Icon(Icons.track_changes),
-            onTap: () {},
+            onTap: () {
+              Get.toNamed('/expense-tracker');
+            },
           ),
           ListTile(
             title: const Text('Notification'),
